@@ -94,3 +94,13 @@ print('\nSelected items that will maximize the knapsack without breaking it:')
 for i in range(selected_items.shape[1]):
   if selected_items[0][i] != 0:
      print('{}\n'.format(selected_items[0][i]))
+fitness_history_mean = [np.mean(fitness) for fitness in fitness_history]
+fitness_history_max = [np.max(fitness) for fitness in fitness_history]
+plt.plot(list(range(num_generations)), fitness_history_mean, label = 'Mean Fitness')
+plt.plot(list(range(num_generations)), fitness_history_max, label = 'Max Fitness')
+plt.legend()
+plt.title('Fitness through the generations')
+plt.xlabel('Generations')
+plt.ylabel('Fitness')
+plt.show()
+print(np.asarray(fitness_history).shape)
